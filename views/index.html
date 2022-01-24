@@ -1,0 +1,39 @@
+<%- include('header.html') -%>
+
+<main>
+  <section>
+    <header>
+      <h2>Wordle #<%= wordleNumber %> Stats</h2>
+      <p>How did your score compare to the other <span class="total-result-count"><%= Number(totalResultCount).toLocaleString() %></span> players?</p>
+    </header>
+
+    <aside>
+      <ul>
+        <% stats.forEach(function(stat){ %>
+          <li>
+            <span class="score">
+              <span class="sr-only">Number of Guesses:</span><%= stat.score %>
+            </span>
+            <span class="line" aria-hidden="true">
+              <% for(var i = 0; i < Math.ceil(stat.percentage); i++) {%>|<% } %>
+            </span>
+            <span class="percentage">
+              <%= stat.percentage %>%
+            </span>
+          </li>
+        <% }) %>
+      </ul>
+    
+    </aside>
+  </section>
+
+  <article>
+    <p>
+      These stats are pulled from <a href="https://twitter.com/search?q=Wordle%20<%= wordleNumber %>" target="_blank">Twitter</a>, where people share their daily scores. It is refreshed every 15 minutes with new scores added.
+    </p>
+  </article>
+</main>
+
+
+
+<%- include('footer.html') -%>
