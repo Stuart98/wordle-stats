@@ -1,0 +1,47 @@
+header {
+    padding-bottom: 1rem;
+}
+
+hr {
+    margin: 1rem 0;
+}
+
+ul {
+    margin-left: 1rem;
+    padding-inline-start: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.total-result-count {
+    color: #176617;
+    font-weight: bold;
+}
+
+.score {
+    font-weight: bold;
+    margin-right: 0.6rem;
+    width: 10px;
+    display: inline-block;
+}
+
+.line {
+    color: #00be00;
+    font-weight: bold;
+}
+
+.percentage {
+    font-size: 0.8rem;
+}
+
+.sr-only {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
