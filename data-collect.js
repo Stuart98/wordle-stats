@@ -50,7 +50,7 @@ async function fetchPageTweets(startDateTime, wordleNumber, nextToken) {
         }
     });
 
-    if (res.body) {
+    if (res.statusCode === 200 && res.body) {
         return res.body;
     } else {
         throw new Error('Unsuccessful request');
@@ -126,12 +126,16 @@ function saveQueryTime(currentQueryTime) {
 }
 
 async function run() {
-    const currentQueryTime = new Date();
-    const tweets = await fetchAllTweets(CONFIG.lastQueryTime, CURRENT_WORDLE_NUMBER);
+    try {
+        const currentQueryTime = new Date();
+        const tweets = await fetchAllTweets(CONFIG.lastQueryTime, CURRENT_WORDLE_NUMBER);
 
-    saveStats(updateStats(CURRENT_WORDLE_NUMBER, tweets));
+        saveStats(updateStats(CURRENT_WORDLE_NUMBER, tweets));
 
-    saveQueryTime(currentQueryTime);
+        saveQueryTime(currentQueryTime);
+    } catch (e) {
+        console.log('Error: ', e);
+    }
 }
 
 module.exports = run;
