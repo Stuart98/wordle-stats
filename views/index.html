@@ -4,26 +4,19 @@
   <section>
     <header>
       <h2>Wordle #<%= wordleNumber %> Stats</h2>
-      <p>How did your score compare to the other <span class="total-result-count"><%= Number(totalResultCount).toLocaleString() %></span> players?</p>
+      <p>How did your score compare to the other <span class="total-result-count"><%= Number(todayPlayerCount).toLocaleString() %></span> players?</p>
     </header>
 
     <aside>
-      <ul>
-        <% stats.forEach(function(stat){ %>
-          <li>
-            <span class="score">
-              <span class="sr-only">Number of Guesses:</span><%= stat.score %>
-            </span>
-            <span class="line" aria-hidden="true">
-              <% for(var i = 0; i < Math.ceil(stat.percentage); i++) {%>|<% } %>
-            </span>
-            <span class="percentage">
-              <%= stat.percentage %>%
-            </span>
-          </li>
-        <% }) %>
-      </ul>
-    
+      <%- include('partials/stats.html', { stats: todayStats }) -%>
+    </aside>
+  </section>
+
+  <section class="yesterday">
+    <aside>
+      <h3>Yesterday's Stats <span>(<%= Number(yesterdayPlayerCount).toLocaleString() %> players)</span></h3>
+
+      <%- include('partials/stats.html', { stats: yesterdayStats }) -%>
     </aside>
   </section>
 

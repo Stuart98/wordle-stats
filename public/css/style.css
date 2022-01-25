@@ -6,6 +6,18 @@ hr {
     margin: 1rem 0;
 }
 
+.yesterday {
+    color: #757575;
+}
+
+.yesterday .line {
+    color: #757575;
+}
+
+.yesterday h3 span {
+    font-size:0.8rem;
+}
+
 ul {
     margin-left: 1rem;
     padding-inline-start: 0;

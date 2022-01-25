@@ -16,14 +16,18 @@
 
     const CURRENT_WORDLE_NUMBER = CONFIG.baseWordleNumber + Math.floor((new Date() - Date.parse(CONFIG.baseDate)) / 86400000);
 
-    const stats = allStats[CURRENT_WORDLE_NUMBER];
+    const todayStats = allStats[CURRENT_WORDLE_NUMBER] || [];
+    const yesterdayStats = allStats[CURRENT_WORDLE_NUMBER - 1] || [];
 
-    const totalResultCount = stats.reduce((out, s) => out + s.count, 0);
+    const todayPlayerCount = todayStats.reduce((out, s) => out + s.count, 0);
+    const yesterdayPlayerCount = yesterdayStats.reduce((out, s) => out + s.count, 0);
 
     res.render('index', {
         wordleNumber: CURRENT_WORDLE_NUMBER,
-        totalResultCount,
-        stats,
+        todayStats,
+        yesterdayStats,
+        todayPlayerCount,
+        yesterdayPlayerCount,
         title: 'Wordle Stats'
     });
  });

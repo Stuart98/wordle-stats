@@ -1,0 +1,15 @@
+<ul>
+    <% stats.forEach(function(stat){ %>
+        <li>
+            <span class="score">
+                <span class="sr-only">Number of Guesses:</span><%= stat.score %>
+            </span>
+            <span class="line" aria-hidden="true">
+                <% for(var i = 0; i < Math.ceil(stat.percentage); i++) {%>|<% } %>
+            </span>
+            <span class="percentage">
+                <%= stat.percentage %>%
+            </span>
+        </li>
+    <% }) %>
+</ul>
