@@ -20,7 +20,7 @@ async function fetchAllTweets(startDateTime, wordleNumber) {
     let token = data && data.meta && data.meta.next_token;
     let tweets = data.data;
 
-    while (token) {
+    while (token && tweets.length < CONFIG.dailyLimit) {
         data = await fetchPageTweets(startDateTime, wordleNumber, token);
 
         tweets = tweets.concat(data.data);
