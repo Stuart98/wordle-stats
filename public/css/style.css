@@ -56,4 +56,9 @@ li {
     position: absolute;
     white-space: nowrap; 
     width: 1px;
-  }
+}
+
+.no-stats {
+    text-align: center;
+    font-weight: bold;
+}

@@ -1,3 +1,4 @@
+<% if (stats.length > 0) { %>
 <ul>
     <% stats.forEach(function(stat){ %>
         <li>
@@ -13,3 +14,13 @@
         </li>
     <% }) %>
 </ul>
+<% } else { %>
+    <div class="no-stats">
+        <p>
+            No stats could be found for today.
+        </p>
+        <p>
+            This is probably because we've hit the Twitter API limits! ☹️
+        </p>
+    </div>
+<% } %>
